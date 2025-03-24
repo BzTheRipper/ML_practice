@@ -1,0 +1,15 @@
+pandas
+scikit-learn
+joblib
+pip
+python-dateutil
+pytz
+scipy
+setuptools
+six
+threadpoolctl
+tzdata
+wheel
+rembg
+Pillow
+matplotlib
