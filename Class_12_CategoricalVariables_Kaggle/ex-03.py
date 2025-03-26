@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 import os
 
 print("Started From Here")
@@ -62,9 +62,16 @@ drop_X_train = X_train.select_dtypes(exclude=['object'])
 #print(X_train.columns)
 #print(drop_X_train.columns)
 drop_X_valid = X_valid.select_dtypes(exclude=['object'])
-#print(score_dataset(drop_X_train, drop_X_valid, y_train, y_valid))
+print(score_dataset(drop_X_train, drop_X_valid, y_train, y_valid))
 
 ordinal_encoder = OrdinalEncoder()
 
+lable_X_train = X_train.copy()
+lable_X_valid = X_valid.copy()
 
+lable_X_train[object_cols] = ordinal_encoder.fit_transform(X_train[object_cols])
+lable_X_valid[object_cols] = ordinal_encoder.transform(X_valid[object_cols])
 
+print(score_dataset(lable_X_train, lable_X_valid, y_train, y_valid))
+
+ 
