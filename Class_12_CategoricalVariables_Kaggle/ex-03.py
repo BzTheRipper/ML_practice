@@ -74,4 +74,4 @@ lable_X_valid[object_cols] = ordinal_encoder.transform(X_valid[object_cols])
 
 print(score_dataset(lable_X_train, lable_X_valid, y_train, y_valid))
 
- 
+print("hi")
